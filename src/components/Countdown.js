@@ -83,7 +83,8 @@ const Countdown = () => {
           <h1>🎁 Click on the Gift Box 🎉</h1>
           <div className="gift-box" onClick={handleOpenGift}>
             <img
-              src="/assets/gift_box.gif"
+              // src="/assets/gift_box.gif"
+              src={`${process.env.PUBLIC_URL}/assets/gift_box.gif`}
               alt="Gift Box"
               className="gift-box-image"
             />
