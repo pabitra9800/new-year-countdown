@@ -9,7 +9,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^4.2.4"
   },
-  "homepage": "https://<your-username>.github.io/new-year-countdown",
+  "homepage": "https://pabitra9800.github.io/new-year-countdown",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
