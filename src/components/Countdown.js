@@ -6,8 +6,13 @@ const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState({});
   const [isNewYear, setIsNewYear] = useState(false);
 
-  const countdownMusic = new Audio("/assets/new_year_countdown.mp3");
-  const newYearMusic = new Audio("/assets/music1.mp3");
+  // const countdownMusic = new Audio("/assets/new_year_countdown.mp3");
+  // const newYearMusic = new Audio("/assets/music1.mp3");
+
+  const countdownMusic = new Audio(
+    `${process.env.PUBLIC_URL}/assets/new_year_countdown.mp3`
+  );
+  const newYearMusic = new Audio(`${process.env.PUBLIC_URL}/assets/music1.mp3`);
 
   useEffect(() => {
     if (!isGiftOpened) return;
