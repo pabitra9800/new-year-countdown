@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/new-year-countdown/static/css/main.b0b64d4b.css",
+    "main.js": "/new-year-countdown/static/js/main.3d8beb9d.js",
+    "static/js/488.237ad411.chunk.js": "/new-year-countdown/static/js/488.237ad411.chunk.js",
+    "index.html": "/new-year-countdown/index.html",
+    "main.b0b64d4b.css.map": "/new-year-countdown/static/css/main.b0b64d4b.css.map",
+    "main.3d8beb9d.js.map": "/new-year-countdown/static/js/main.3d8beb9d.js.map",
+    "488.237ad411.chunk.js.map": "/new-year-countdown/static/js/488.237ad411.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0b64d4b.css",
+    "static/js/main.3d8beb9d.js"
+  ]
+}
