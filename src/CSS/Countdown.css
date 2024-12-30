@@ -75,6 +75,21 @@ body {
   opacity: 0.7;
 }
 
+.gift-box-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.gift-box-image {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gift-box-image:hover {
+  transform: scale(1.1);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {

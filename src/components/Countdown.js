@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../CSS/Countdown.css";
 
 const Countdown = () => {
+  const [isGiftOpened, setIsGiftOpened] = useState(false);
   const [timeLeft, setTimeLeft] = useState({});
   const [isNewYear, setIsNewYear] = useState(false);
 
@@ -9,6 +10,8 @@ const Countdown = () => {
   const newYearMusic = new Audio("/assets/music1.mp3");
 
   useEffect(() => {
+    if (!isGiftOpened) return;
+
     const targetDate = new Date("January 1, 2025 00:00:00").getTime();
 
     const timer = setInterval(() => {
@@ -22,10 +25,6 @@ const Countdown = () => {
         playNewYearMusic();
         stopCountdownMusic();
       } else {
-        if (!countdownMusic.playing) {
-          playCountdownMusic();
-        }
-
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
           (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -39,17 +38,21 @@ const Countdown = () => {
       }
     }, 1000);
 
+    playCountdownMusic();
+
     return () => {
       clearInterval(timer);
       stopCountdownMusic();
       stopNewYearMusic();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isGiftOpened]);
 
   const playCountdownMusic = () => {
     countdownMusic.loop = true;
-    countdownMusic.play();
+    countdownMusic.play().catch((error) => {
+      console.error("Error playing countdown music:", error);
+    });
   };
 
   const stopCountdownMusic = () => {
@@ -59,7 +62,9 @@ const Countdown = () => {
 
   const playNewYearMusic = () => {
     newYearMusic.loop = true;
-    newYearMusic.play();
+    newYearMusic.play().catch((error) => {
+      console.error("Error playing new year music:", error);
+    });
   };
 
   const stopNewYearMusic = () => {
@@ -67,9 +72,24 @@ const Countdown = () => {
     newYearMusic.currentTime = 0;
   };
 
+  const handleOpenGift = () => {
+    setIsGiftOpened(true);
+  };
+
   return (
     <div className="countdown-container">
-      {isNewYear ? (
+      {!isGiftOpened ? (
+        <div className="gift-box-container">
+          <h1>🎁 Click on the Gift Box 🎉</h1>
+          <div className="gift-box" onClick={handleOpenGift}>
+            <img
+              src="/assets/gift_box.gif"
+              alt="Gift Box"
+              className="gift-box-image"
+            />
+          </div>
+        </div>
+      ) : isNewYear ? (
         <div className="new-year-message">
           <h1>🎆 Happy New Year 2025! 🎆</h1>
           <p>Wishing you a joyful and prosperous year ahead!</p>
